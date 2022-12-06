@@ -1,3 +1,4 @@
+/*** *CSS Reset ***/
 * {
     padding: 0;
     margin: 0;
@@ -8,7 +9,9 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.page_grid {
+/*** *Page Grid ***/
+
+.page_grid_wrapper {
     width: 100vw;
     height: 100vh;
 
@@ -16,8 +19,10 @@
     grid-template-columns: 1fr 5fr;
 }
 
+/*** *Aside Styles ***/
+
 aside {
-    background-color: rgb(250, 190, 70);
+    background-color: #fabe46;
     padding: 1rem;
     text-align: center;
     box-shadow: 5px 5px 5px #dcdcdc;
@@ -54,4 +59,43 @@ aside>h1 {
 
 button.add_book {
     padding: 0.5rem;
+}
+
+/*** *Main Content Styles ***/
+
+.main_content_wrapper {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 0.5fr));
+    gap: 1rem;
+}
+
+.library_card {
+    position: relative;
+
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 15em;
+    padding: 1rem;
+}
+
+img {
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.card_info {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 158, 117, 0.85);
+    color: #fff;
+    font-weight: bold;
 }
