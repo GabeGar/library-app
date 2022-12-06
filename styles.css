@@ -77,9 +77,15 @@ aside>h1 {
     padding-top: 1rem;
 }
 
-button.add_book {
+.form_btn_container>button {
     border-radius: 3px;
     padding: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.form_btn_container>button:hover {
+    transform: translate(0px, 3px);
 }
 
 /*** *Main Content Styles ***/
