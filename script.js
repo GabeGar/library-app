@@ -6,6 +6,19 @@ const readStatus = document.querySelector("#read");
 const addBook = document.querySelector(".add_book");
 const mainContent = document.querySelector(".main_content_wrapper");
 
+// Modal Control
+const modal = document.querySelector(".modal");
+const openModal = document.querySelector(".open_modal");
+const closeModal = document.querySelector(".close_modal");
+
+openModal.addEventListener("click", () => {
+    modal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+    modal.close();
+});
+
 // Object(s) list
 const myLibrary = [];
 
