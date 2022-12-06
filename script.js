@@ -17,6 +17,7 @@ openModal.addEventListener("click", () => {
 
 closeModal.addEventListener("click", () => {
     modal.close();
+    resetInputs();
 });
 
 // Object(s) list
