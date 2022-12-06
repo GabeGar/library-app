@@ -22,16 +22,32 @@
 /*** *Aside Styles ***/
 
 aside {
+    position: relative;
     background-color: #fabe46;
     padding: 1rem;
     text-align: center;
     box-shadow: 5px 5px 5px #dcdcdc;
+    height: 100%;
 }
 
 aside>h1 {
     padding-bottom: 1.5rem;
 }
 
+.open_modal {
+    font-size: 3rem;
+    padding: 0 0.5rem;
+}
+
+.modal {
+    background-color: #ffac71;
+    border: 3px solid #ffac71;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    top: 20vh;
+    left: 50vw;
+}
 
 .form_field {
     display: grid;
@@ -54,7 +70,6 @@ aside>h1 {
 
 .form_field>input {
     outline: none;
-    border: none;
     border-radius: 5px;
 }
 
@@ -63,6 +78,7 @@ aside>h1 {
 }
 
 button.add_book {
+    border-radius: 3px;
     padding: 0.5rem;
 }
 
