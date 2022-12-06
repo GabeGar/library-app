@@ -13,24 +13,29 @@
     <div class="page_grid_wrapper">
         <aside class="sidebar">
             <h1>Your Book Shelf</h1>
-            <form action="#" class="add_entry">
-                <div class="form_field">
-                    <label for="bookname">Book Title</label>
-                    <input type="text" name="bookname" id="bookname">
-                </div>
-                <div class="form_field">
-                    <label for="author">Author</label>
-                    <input type="text" name="author" id="author">
-                </div>
-                <div class="form_field">
-                    <label for="pages">Page Length</label>
-                    <input type="number" name="pages" min="1" id="pages">
-                </div>
-                <div class="form_field">
-                    <label for="read">Finished? <input type="checkbox" name="read" id="read"></label>
-                </div>
-                <div class="form_btn_container"><button class="add_book">Add Book</button></div>
-            </form>
+            <button class="open_modal">+</button>
+
+
+            <dialog class="modal" id="modal">
+                <form action="#" method="dialog" class="add_entry">
+                    <div class="form_field">
+                        <label for="bookname">Book Title</label>
+                        <input type="text" name="bookname" id="bookname">
+                    </div>
+                    <div class="form_field">
+                        <label for="author">Author</label>
+                        <input type="text" name="author" id="author">
+                    </div>
+                    <div class="form_field">
+                        <label for="pages">Page Length</label>
+                        <input type="number" name="pages" min="1" id="pages">
+                    </div>
+                    <div class="form_field">
+                        <label for="read">Finished? <input type="checkbox" name="read" id="read"></label>
+                    </div>
+                    <div class="close_modal form_btn_container"><button class="add_book">Add Book</button></div>
+                </form>
+            </dialog>
         </aside>
 
         <main class="main_content_wrapper">
