@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library App</title>
+</head>
+
+<body>
+
+    <div class="page_grid">
+        <aside>
+            <h1>My Library</h1>
+            <form action="#" class="add_entry">
+                <div class="form_field">
+                    <label for="bookname">Book Name</label>
+                    <input type="text" name="bookname" id="bookname">
+                </div>
+                <div class="form_field">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div class="form_field">
+                    <label for="pages">Length</label>
+                    <input type="number" name="pages" min="1" max="5000" value="1" id="pages">
+                </div>
+                <div class="form_field">
+                    <label for="read">Have Read? <input type="checkbox" name="read" id="read"></label>
+                </div>
+                <div class="form_btn_container"><button class="add_book">Add Book</button></div>
+            </form>
+        </aside>
+
+        <main>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
