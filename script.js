@@ -75,10 +75,10 @@ function AddBookToDisplay() {
             cardInfo.style.overflow = "hidden";
             cardInfo.appendChild(cardInfoData);
         }
-        deleteBtn.textContent = "Remove Book";
+        deleteBtn.textContent = "X";
         deleteBtn.setAttribute(
             "style",
-            "padding: 0.3rem; border-radius: 5px; color: #fff; background-color:#ffac71;"
+            "font-size: 1rem; font-weight: bold; padding: 0.3rem; border-radius: 5px; color: #fff; background-color:#ffac71;"
         );
         deleteBtn.setAttribute("id", `${bookId}`);
         cardInfo.appendChild(deleteBtn);
