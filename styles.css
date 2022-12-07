@@ -46,8 +46,9 @@ aside>h1 {
     border-radius: 10px;
     padding: 2rem;
     position: fixed;
-    top: 20vh;
-    left: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .form_field {
