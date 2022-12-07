@@ -70,6 +70,8 @@ function AddBookToDisplay() {
             if (entry === "readStatus") format = "Status:";
             // Formatting
             cardInfoData.append(`${format} ${book[entry]}`);
+            cardInfo.style.padding = "0.3rem";
+            cardInfo.style.textAlign = "center";
             cardInfo.appendChild(cardInfoData);
         }
         deleteBtn.textContent = "Remove Book";
