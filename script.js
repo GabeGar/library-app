@@ -72,6 +72,7 @@ function AddBookToDisplay() {
             cardInfoData.append(`${format} ${book[entry]}`);
             cardInfo.style.padding = "0.3rem";
             cardInfo.style.textAlign = "center";
+            cardInfo.style.overflow = "hidden";
             cardInfo.appendChild(cardInfoData);
         }
         deleteBtn.textContent = "Remove Book";
