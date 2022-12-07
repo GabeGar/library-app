@@ -16,12 +16,23 @@ openModal.addEventListener("click", () => {
 });
 
 closeModal.addEventListener("click", () => {
-    modal.close();
     resetInputs();
+    modal.close();
 });
 
-// Object(s) list
+modal.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+        resetInputs();
+        modal.close();
+    }
+});
+
+// Object(s) list(s)
 const myLibrary = [];
+const idStorage = [];
+
+// Book ID start and increment from Global
+let bookId = 0;
 
 function Book(name, author, pageLength, readStatus) {
     (this.name = name ? name : "Unknown Book Title"),
@@ -29,6 +40,7 @@ function Book(name, author, pageLength, readStatus) {
         (this.pageLength =
             pageLength && pageLength > 0 ? pageLength : "Unknown Length"),
         (this.readStatus = readStatus ? "Finished" : "Not Read");
+    this.id = ++bookId;
 }
 
 function resetInputs() {
@@ -36,6 +48,66 @@ function resetInputs() {
     author.value = "";
     pageLength.value = "";
     readStatus.checked = false;
+}
+
+function AddBookToDisplay() {
+    for (let book of myLibrary) {
+        // Creates and Displays new entry to be appended to main content.
+        const libraryCard = document.createElement("div");
+        const cardInfo = document.createElement("div");
+        const img = document.createElement("img");
+        const deleteBtn = document.createElement("button");
+
+        for (let entry in book) {
+            // Prevents id entry from being appended to the cardInfoData divs.
+            if (entry === "id") continue;
+
+            let format = "";
+            const cardInfoData = document.createElement("div");
+            if (entry === "name") format = "Title:";
+            if (entry === "author") format = "Author:";
+            if (entry === "pageLength") format = "Pages:";
+            if (entry === "readStatus") format = "Status:";
+            // Formatting
+            cardInfoData.append(`${format} ${book[entry]}`);
+            cardInfo.appendChild(cardInfoData);
+        }
+        deleteBtn.textContent = "Remove Book";
+        deleteBtn.setAttribute(
+            "style",
+            "padding: 0.3rem; border-radius: 5px; color: #fff; background-color:#ffac71;"
+        );
+        deleteBtn.setAttribute("id", `${bookId}`);
+        cardInfo.appendChild(deleteBtn);
+
+        // Attaches Event Listener to deleteBtn dynamically
+        deleteBtn.addEventListener("click", (e) => {
+            for (let child of mainContent.children) {
+                if (e.target.id === child.getAttribute("id")) {
+                    mainContent.removeChild(child);
+                }
+            }
+        });
+
+        img.classList.add("card_img");
+        img.src = "images/calm_library.jpg";
+        img.alt = "Calm library setting with a soft yellow lighting hue.";
+
+        cardInfo.classList.add("card_info");
+        libraryCard.classList.add("library_card");
+        libraryCard.setAttribute("id", `${bookId}`);
+
+        // Finalizes addition of latest book
+        libraryCard.appendChild(img);
+        libraryCard.appendChild(cardInfo);
+        mainContent.appendChild(libraryCard);
+
+        // Sends Book to idStorage Arr, Only after book has been displayed.
+        // To be stored instead of removed, later on.
+        idStorage.push(myLibrary.pop(book));
+        // Clears Input Fields
+        resetInputs();
+    }
 }
 
 function addBookToLibrary(e) {
@@ -48,32 +120,7 @@ function addBookToLibrary(e) {
         readStatus.checked
     );
     myLibrary.push(newBook);
-
-    for (let book of myLibrary) {
-        // Creates new entry to be appended to main content.
-        const libraryCard = document.createElement("div");
-        const cardInfo = document.createElement("div");
-        const img = document.createElement("img");
-
-        for (let entry in book) {
-            const cardInfoData = document.createElement("div");
-            cardInfoData.append(book[entry]);
-            cardInfo.appendChild(cardInfoData);
-        }
-        img.classList.add("card_img");
-        img.src = "images/calm_library.jpg";
-        img.alt = "Calm library setting with a soft yellow lighting hue.";
-        cardInfo.classList.add("card_info");
-        libraryCard.classList.add("library_card");
-        libraryCard.appendChild(img);
-        libraryCard.appendChild(cardInfo);
-        mainContent.appendChild(libraryCard);
-
-        // Removes Book Only after book has been displayed.
-        // To be stored instead of removed, later on.
-        myLibrary.pop(book);
-        resetInputs();
-    }
+    AddBookToDisplay();
 }
 
 addBook.addEventListener("click", addBookToLibrary);
