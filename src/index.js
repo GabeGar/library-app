@@ -1,4 +1,4 @@
-import Book from "./modules/book";
+import Book, { savedIds } from "./modules/book";
 import LibraryManager from "./modules/librarymanager";
 import DisplayManager from "./modules/displayhandler";
 
@@ -18,12 +18,22 @@ const modal = document.querySelector(".modal");
 const openModal = document.querySelector(".open_modal");
 const closeModal = document.querySelector(".close_modal");
 
-// Helper Funcs
+// Helper
 function resetInputs() {
     bookName.value = "";
     author.value = "";
     pageLength.value = "";
     readStatus.checked = false;
+}
+
+// Helper
+function removeSavedIdFromList(savedIdsList, targetId) {
+    for (let id of savedIdsList) {
+        if (targetId === id) {
+            let index = savedIdsList.indexOf(targetId);
+            savedIdsList.splice(index, 1);
+        }
+    }
 }
 
 function attachDeleteBtnListeners() {
@@ -39,6 +49,8 @@ function attachDeleteBtnListeners() {
 // Main function for removing books
 function removeBookFromLibraryAndRender(e) {
     let currentTargetId = e.target.parentNode.parentNode.id;
+    removeSavedIdFromList(savedIds, currentTargetId);
+    console.log(savedIds);
     displayManager.removeBookFromDisplay(currentTargetId);
     libraryManager.removeBookFromLibrary(currentTargetId);
     displayManager.renderBooks(libraryManager.getLibraryBooks());
@@ -61,6 +73,7 @@ function addBookToLibraryAndRender(e) {
     const myLibrary = libraryManager.getLibraryBooks();
     displayManager.renderBooks(myLibrary);
     attachDeleteBtnListeners();
+    console.log(savedIds);
 }
 
 // Event listeners

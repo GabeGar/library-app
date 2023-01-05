@@ -1,4 +1,4 @@
-const savedIds = [];
+export const savedIds = [];
 
 export default class Book {
     constructor(name, author, pageLength, readStatus) {
