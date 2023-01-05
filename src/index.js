@@ -46,11 +46,10 @@ function attachDeleteBtnListeners() {
     });
 }
 
-// Main function for removing books
+// Function for removing books
 function removeBookFromLibraryAndRender(e) {
     let currentTargetId = e.target.parentNode.parentNode.id;
     removeSavedIdFromList(savedIds, currentTargetId);
-    console.log(savedIds);
     displayManager.removeBookFromDisplay(currentTargetId);
     libraryManager.removeBookFromLibrary(currentTargetId);
     displayManager.renderBooks(libraryManager.getLibraryBooks());
@@ -73,7 +72,6 @@ function addBookToLibraryAndRender(e) {
     const myLibrary = libraryManager.getLibraryBooks();
     displayManager.renderBooks(myLibrary);
     attachDeleteBtnListeners();
-    console.log(savedIds);
 }
 
 // Event listeners
