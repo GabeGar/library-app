@@ -10,6 +10,8 @@ export default class DisplayManager {
             const libraryCard = document.createElement("div");
             const cardInfo = document.createElement("div");
             const img = document.createElement("img");
+            const imageDirectiory = "images/";
+            const imageTitle = "calm_library";
             const deleteBtn = document.createElement("button");
 
             let currentBookId = book.getId();
@@ -41,7 +43,7 @@ export default class DisplayManager {
             cardInfo.appendChild(deleteBtn);
 
             img.classList.add("card_img");
-            img.src = "images/calm_library.jpg";
+            img.src = `${imageDirectiory}${imageTitle}.jpg`;
             img.alt = "Calm library setting with a soft yellow lighting hue.";
 
             cardInfo.classList.add("card_info");
