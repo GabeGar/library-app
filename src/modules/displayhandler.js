@@ -41,7 +41,7 @@ export default class DisplayManager {
             cardInfo.appendChild(deleteBtn);
 
             img.classList.add("card_img");
-            img.src = "./dist/images/calm_library.jpg";
+            img.src = "/images/calm_library.jpg";
             img.alt = "Calm library setting with a soft yellow lighting hue.";
 
             cardInfo.classList.add("card_info");
