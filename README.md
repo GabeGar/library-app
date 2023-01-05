@@ -5,9 +5,10 @@
 To create a library card project, that will take inputs & store inputs, as instantiated objects. Then,
 displaying them to in the browser. Project was made as part of the Javascript path, in TheOdinProject curriculum.
 
-**_Skills_Learned_**
+**_Skills_Applied_**
 
-1. Object creation, using plain old Javascript Constructor Functions.
+1. Object Orient Programming.
+2. Bundling project modules via webpack
 
 **_Credits_**
 
