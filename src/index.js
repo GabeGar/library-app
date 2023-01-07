@@ -58,7 +58,12 @@ function removeBookFromLibraryAndRender(e) {
 
 // Main function for creating/displaying books
 function addBookToLibraryAndRender(e) {
-    if (bookName.value === "" || author.value === "" || pageLength.value === "")
+    // Prevent invalid req fields from creating a new book object, enforcing basic constraint validation.
+    if (
+        !bookName.checkValidity() ||
+        !author.checkValidity() ||
+        !pageLength.checkValidity()
+    )
         return;
 
     const newBook = new Book(
