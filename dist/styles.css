@@ -34,9 +34,16 @@ aside>h1 {
     padding-bottom: 1.5rem;
 }
 
+/* *Modal Styles */
+
 .open_modal {
     font-size: 3rem;
     padding: 0 0.5rem;
+    transition: 250ms ease;
+}
+
+.open_modal:hover {
+    transform: scale(1.1);
 }
 
 .modal {
@@ -50,6 +57,8 @@ aside>h1 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* *Form Field Styles */
 
 .form_field {
     display: grid;
@@ -70,9 +79,16 @@ aside>h1 {
     text-align: start;
 }
 
-.form_field>input {
-    outline: none;
-    border-radius: 5px;
+.form_field input {
+    border-radius: 2px;
+}
+
+.form_field input:focus:invalid {
+    outline: 2px solid #ff0202;
+}
+
+.form_field input:focus:valid {
+    outline: 2px solid #2a4aff;
 }
 
 .form_btn_container {
