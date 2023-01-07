@@ -61,7 +61,6 @@ export default class DisplayManager {
         for (let child of mainContent.children) {
             if (child.id === targetId) {
                 mainContent.removeChild(child);
-                // Need a way to remove book from list
             }
         }
     }
