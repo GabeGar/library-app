@@ -7,7 +7,7 @@ displaying them to in the browser. Project was made as part of the Javascript pa
 
 **_Skills_Applied_**
 
-1. Object Orient Programming.
+1. Object oriented programming principles
 2. Bundling project modules via webpack
 
 **_Credits_**
